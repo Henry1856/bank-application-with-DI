@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BANK_APPLICATION
 {
-    internal interface IMethodOfMethods
+    public interface IMethodOfMethods
     {
         void Choice2Method();
         void Choice1Method();

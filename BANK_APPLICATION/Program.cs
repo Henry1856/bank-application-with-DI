@@ -12,13 +12,15 @@ namespace BANK_APPLICATION
                 {
                     services.AddScoped<IAccount, Account>();
                     services.AddScoped<ITransaction, Transaction>();
-                    services.AddScoped<IMenu, Menu>();
+                    services.AddScoped<IMethodOfMethods, MethodOfMethods>();
+                    services.AddScoped< IMenu, Menu>();
                 })
                 .Build();
                   // Resolve IMenu and run the menu
         using var serviceScope = host.Services.CreateScope();
         var menu = serviceScope.ServiceProvider.GetRequiredService<IMenu>();
         menu.Menu1();
+            
         }
     }
 }

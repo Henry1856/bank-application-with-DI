@@ -3,7 +3,7 @@
     public interface IAccount
     {
         void CheckAccountBalance();
-        void CreateAccount();
+        Account CreateAccount();
         double GenerateAccountNumber();
         void GetAccount();
     }

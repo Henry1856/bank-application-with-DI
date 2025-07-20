@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BANK_APPLICATION
 {
-    internal class Menu : IMenu
+    public class Menu : IMenu
     {
-        private readonly MethodOfMethods _methodOfMethods;
+        private readonly IMethodOfMethods _methodOfMethods;
 
-        public Menu(MethodOfMethods methodOfMethods)
+        public Menu(IMethodOfMethods methodOfMethods)
         {
             _methodOfMethods = methodOfMethods;
         }

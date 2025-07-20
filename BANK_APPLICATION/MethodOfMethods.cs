@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BANK_APPLICATION
 {
-    internal class MethodOfMethods : IMethodOfMethods
+    public class MethodOfMethods : IMethodOfMethods
     {
         private readonly ITransaction _transaction;
         private readonly IAccount _account;

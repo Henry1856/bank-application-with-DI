@@ -75,6 +75,13 @@ namespace Bank_Application_with_SOLID_Principle
                         Console.WriteLine("Invalid email format. Please enter a valid email address.");
 
                     }
+                   bool emailExists = accounts.Any(account => account.email == email);
+                    if (emailExists)
+                    {
+                        Console.WriteLine($"An account with the email {email} already exists.");
+                        continue; // Prompt for email again if it exists
+                    }
+                    break;
                 }
                 Console.WriteLine("Enter BVN");
                 while (true)
@@ -88,25 +95,32 @@ namespace Bank_Application_with_SOLID_Principle
                     {
                         Console.WriteLine("Invalid BVN. Please enter a valid 11-digit BVN.");
                     }
-                }
-                bool exit1 = false;
-                bool exit2 = false;
-
-                foreach (var account in accounts)
-                {
-                    if (account.bvn == bvn && account.accountType == accountType && account.email == email)
+                    bool bvnExists = accounts.Any(account => account.bvn == bvn);
+                    if (bvnExists)
                     {
-                        Console.WriteLine($" Account Type: {account.accountType} with  BVN: {account.bvn} and email {account.email}, already exist");
-                        exit1 = true;
+                        Console.WriteLine($"An account with the BVN {bvn} already exists.");
+                        continue; // Prompt for BVN again if it exists
                     }
-
-                    {
-                        Console.WriteLine($" Account Type: {account.accountType}and email {account.email}, already exist");
-                        exit2 = true;
-                    }
+                    break;
                 }
-                if (!exit1 && !exit2)
-                {
+                //bool exit1 = false;
+                //bool exit2 = false;
+
+                //foreach (var account in accounts)
+                //{
+                //    if (account.bvn == bvn && account.accountType == accountType && account.email == email)
+                //    {
+                //        Console.WriteLine($" Account Type: {account.accountType} with  BVN: {account.bvn} and email {account.email}, already exist");
+                //        exit1 = true;
+                //    }
+                //    else if (account.bvn == bvn && account.email == email)
+                //    {
+                //        Console.WriteLine($" Account Type: {account.accountType}and email {account.email}, already exist");
+                //        exit2 = true;
+                //    }
+                //}
+                //if(!accounts.Any(account => account.bvn == bvn && account.email == email && account.accountType == accountType))
+                //{
                     Console.WriteLine("enter your fullName");
                     while (true)
                     {
@@ -154,7 +168,7 @@ namespace Bank_Application_with_SOLID_Principle
                     Console.WriteLine($@"{accountHolderName} was successfully created with account number {accountNumber} and initial deposit of {balance}");
                     Console.WriteLine($"accountHolderName : {accountHolderName}, accountBalance : {balance}");
                     //var newAccount = new Account { accountHolderName = accountHolderName, balance = balance, accountNumber = accountNumber, DateOfBirth = DateOfBirth, bvn = bvn, email = email, accountType = accountType };
-                }
+                
             }
 
             catch (Exception ex)

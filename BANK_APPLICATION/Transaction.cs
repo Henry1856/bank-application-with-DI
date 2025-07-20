@@ -24,7 +24,7 @@ namespace BANK_APPLICATION
                 balance = balance,
                 amount = amount,
                 note = note,
-                accountNumber = accountNumber
+                accountNumber = accountNumber   
             };
             return newTransaction;
         }
